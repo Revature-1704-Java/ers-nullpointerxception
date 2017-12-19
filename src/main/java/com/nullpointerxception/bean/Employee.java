@@ -17,7 +17,7 @@ public class Employee {
 		this.lastName = lastName;
 		this.isManager = isManager;
 	}
-	
+
 	public Employee(int employeeId, String username, String firstName, String lastName, boolean isManager) {
 		super();
 		this.employeeId = employeeId;
@@ -26,11 +26,7 @@ public class Employee {
 		this.lastName = lastName;
 		this.isManager = isManager;
 	}
-	
-	
 
-	
-	
 	public String getPassword() {
 		return password;
 	}
@@ -38,7 +34,6 @@ public class Employee {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
 
 	public int getEmployeeId() {
 		return employeeId;
