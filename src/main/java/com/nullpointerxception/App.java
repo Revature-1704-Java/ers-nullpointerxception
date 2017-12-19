@@ -132,10 +132,10 @@ public class App {
 						continue;
 					}else {
 						if(currentEmployee.isManager()) {
-							Reimbursement r = new Reimbursement(currentEmployee.getEmployeeId(), amount, 2);
+							Reimbursement r = new Reimbursement(currentEmployee.getEmployeeId(), amount, "APPROVED");
 							reimbursementDAO.insert(r);
 						}else {
-							Reimbursement r = new Reimbursement(currentEmployee.getEmployeeId(), amount, 1);
+							Reimbursement r = new Reimbursement(currentEmployee.getEmployeeId(), amount, "PENDING");
 							reimbursementDAO.insert(r);
 						}
 						break;
@@ -169,11 +169,11 @@ public class App {
 						
 						String in = scanner.next();
 						if(in.equals("1")) {
-							reimbursementDAO.updateReimbursement(input, 2);
+							reimbursementDAO.updateReimbursement(input, "APPROVED");
 							System.out.println("Success! Reimbursement ID: " +  reimbursements.get(i).getReimbursementId() + " approved.");
 							break;
 						}else if(in.equals("2")) {
-							reimbursementDAO.updateReimbursement(input, 3);
+							reimbursementDAO.updateReimbursement(input, "DENIED");
 							System.out.println("Success! Reimbursement ID: " +  reimbursements.get(i).getReimbursementId() + " denied.");
 							break;
 						}else if(in.equals("3")) {

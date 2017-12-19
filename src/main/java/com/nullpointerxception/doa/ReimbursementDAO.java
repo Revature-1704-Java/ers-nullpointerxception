@@ -43,7 +43,7 @@ public class ReimbursementDAO implements Crud<Reimbursement> {
 				int id = rs.getInt("reimbursementid");
 				int employeeId = rs.getInt("employeeid");
 				int expense = rs.getInt("expense");
-				int status = rs.getInt("status");
+				String status = rs.getString("status");
 				
 				reimbursement = new Reimbursement(id, employeeId, expense, status);
 				reimbursements.add(reimbursement);
@@ -72,7 +72,7 @@ public class ReimbursementDAO implements Crud<Reimbursement> {
 				int rid = rs.getInt("reimbursementid");
 				int employeeId = rs.getInt("employeeid");
 				int expense = rs.getInt("expense");
-				int status = rs.getInt("status");
+				String status = rs.getString("status");
 				
 				reimbursement = new Reimbursement(rid, employeeId, expense, status);
 				reimbursements.add(reimbursement);
@@ -101,7 +101,7 @@ public class ReimbursementDAO implements Crud<Reimbursement> {
 				int reimbursementId = rs.getInt("reimbursementid");
 				int employeeId = rs.getInt("employeeid");
 				int expense = rs.getInt("expense");
-				int status = rs.getInt("status");
+				String status = rs.getString("status");
 				
 				reimbursement = new Reimbursement(reimbursementId, employeeId, expense, status);
 				
@@ -123,7 +123,7 @@ public class ReimbursementDAO implements Crud<Reimbursement> {
 			ps = conn.prepareStatement(sql);
 			ps.setInt(1, r.getEmployeeId());
 			ps.setInt(2, r.getExpense());
-			ps.setInt(3, r.getStatus());
+			ps.setString(3, r.getStatus());
 			//Add any variables to PS
 			int rows = ps.executeUpdate();
 			if(rows == 0) {
@@ -137,14 +137,14 @@ public class ReimbursementDAO implements Crud<Reimbursement> {
 		
 	}
 	
-	public void updateReimbursement(int id, int status) {
+	public void updateReimbursement(int id, String status) {
 		
 		PreparedStatement ps = null;
 		ConnectionUtil connectionUtil = ConnectionUtil.getInstance();
 		try(Connection conn = connectionUtil.getConnection()){
 			String sql = "UPDATE reimbursement SET status=? WHERE reimbursementid=?";
 			ps = conn.prepareStatement(sql);
-			ps.setInt(1, status);
+			ps.setString(1, status);
 			ps.setInt(2, id);
 			//Add any variables to PS
 			int rows = ps.executeUpdate();

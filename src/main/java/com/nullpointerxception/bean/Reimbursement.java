@@ -5,7 +5,7 @@ public class Reimbursement {
 	private int reimbursementId;
 	private int employeeId;
 	private int expense;
-	private int status;
+	private String status;
 
 	public int getReimbursementId() {
 		return reimbursementId;
@@ -19,7 +19,7 @@ public class Reimbursement {
 		return employeeId;
 	}
 
-	public Reimbursement(int reimbursementId, int employeeId, int expense, int status) {
+	public Reimbursement(int reimbursementId, int employeeId, int expense, String status) {
 		super();
 		this.reimbursementId = reimbursementId;
 		this.employeeId = employeeId;
@@ -27,7 +27,7 @@ public class Reimbursement {
 		this.status = status;
 	}
 	
-	public Reimbursement(int employeeId, int expense, int status) {
+	public Reimbursement(int employeeId, int expense, String status) {
 		super();
 		this.employeeId = employeeId;
 		this.expense = expense;
@@ -46,11 +46,11 @@ public class Reimbursement {
 		this.expense = expense;
 	}
 
-	public int getStatus() {
+	public String getStatus() {
 		return status;
 	}
 
-	public void setStatus(int status) {
+	public void setStatus(String status) {
 		this.status = status;
 	}
 
